@@ -1,5 +1,10 @@
-//variable
+const express = require('express');
+morgan = require('morgan');
+const app = express();
 
+app.use(morgan('common'));
+
+//variable
 let topMovies = [
   {
   title: 'Black Panther',
@@ -32,12 +37,6 @@ let topMovies = [
     title: 'Joker',
   },
 ]
-
-const express = require('express');
-morgan = require('morgan');
-const app = express();
-
-app.use(morgan('common'));
 
 // GET requests
 app.get('/', (req, res) => {
