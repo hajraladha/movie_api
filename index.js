@@ -1,3 +1,38 @@
+//variable
+
+let topMovies = [
+  {
+  title: 'Black Panther',
+  },
+  {
+  title: 'Avengers:EndGame',
+  } ,
+  {
+  title: 'Legally Blond',
+  },
+  {
+  title: 'Spider Man: No Way Home',
+  },
+  {
+    title: 'Harry Potter',
+  },
+  {
+    title: 'Little Woman',
+  },
+  {
+    title: 'Turning Red',
+  },
+  {
+    title: 'The Dark Knight',
+  },
+  {
+    title: 'Forrest Gump',
+  },
+  {
+    title: 'Joker',
+  },
+]
+
 const express = require('express');
 morgan = require('morgan');
 const app = express();
