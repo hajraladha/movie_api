@@ -299,9 +299,9 @@ app.delete('/users/:username', (req, res) => {
 
 });
 
-app.get('/documentation', (req, res) => {
-  res.sendFile('public/documentation.html', { root: __dirname });
-});
+// app.get('/documentation', (req, res) => {
+//   res.sendFile('public/documentation.html', { root: __dirname });
+// });
 
 app.get('/movies', (req, res) => {
   res.json(topMovies);
