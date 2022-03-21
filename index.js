@@ -21,12 +21,12 @@ let users =  [
 ]
 
 //variable
-let topMovies = [
+let movies = [
   {
   title: 'Black Panther',
   year: '2018', 
   genre: {
-    name: 'Action/Adventure',
+    name: 'Action',
     description:'',
   }, 
   director: {
@@ -42,7 +42,7 @@ let topMovies = [
   title: 'Avengers:EndGame',
   year: '2019', 
   genre: {
-    name: 'Action/Adventure',
+    name: 'Action',
     description:'',
   }, 
   director: {
@@ -58,7 +58,7 @@ let topMovies = [
   title: 'Legally Blonde',
   year: '2001', 
   genre: {
-    name: 'Drama Comedy',
+    name: 'Drama',
     description:'',
   }, 
   director: {
@@ -74,7 +74,7 @@ let topMovies = [
   title: 'Spider Man: No Way Home',
   year: '2021', 
   genre: {
-    name: 'Action/Adventure',
+    name: 'Action',
     description:'',
   }, 
   director: {
@@ -90,7 +90,7 @@ let topMovies = [
     title: 'Harry Potter and the Prisoner of Azkaban',
     year: '2004', 
     genre: {
-      name: 'Fantasy/Adventure',
+      name: 'Fantasy',
       description:'',
     }, 
     director: {
@@ -106,7 +106,7 @@ let topMovies = [
     title: 'Little Women',
     year: '2019', 
     genre: {
-      name: 'Romance/Drama',
+      name: 'Romance',
       description:'',
     }, 
     director: {
@@ -122,7 +122,7 @@ let topMovies = [
     title: 'Turning Red',
     year: '2022', 
     genre: {
-      name: 'Comedy/Family',
+      name: 'Comedy',
       description:'',
     }, 
     director: {
@@ -138,7 +138,7 @@ let topMovies = [
     title: 'The Dark Knight Rises',
     year: '2012', 
     genre: {
-      name: ' Action/Thriller',
+      name: ' Action',
       description:'',
     }, 
     director: {
@@ -154,7 +154,7 @@ let topMovies = [
     title: 'Forrest Gump',
     year: '1994', 
     genre: {
-      name: 'Drama/Romance ',
+      name: 'Drama ',
       description:'',
     }, 
     director: {
@@ -170,7 +170,7 @@ let topMovies = [
     title: 'Joker',
     year: '2019', 
     genre: {
-      name: 'Crime/Drama',
+      name: 'Crime',
       description:'',
     }, 
     director: {
@@ -190,7 +190,7 @@ app.get('/', (req, res) => {
 
 // (Read) and responds a json with all movies in database
 app.get('/movies', (req, res) => {
-  res.status(200).json(topMovies);
+  res.status(200).json(movies);
 });
 
 //(Read) responds with a json of the specific movie asked for title 
@@ -303,9 +303,6 @@ app.delete('/users/:username', (req, res) => {
 //   res.sendFile('public/documentation.html', { root: __dirname });
 // });
 
-// app.get('/movies', (req, res) => {
-//   res.json(topMovies);
-// });
 
         // listen for requests
 app.listen(8080, () => {
