@@ -55,7 +55,7 @@ let topMovies = [
   imgURL:'',
   } ,
   {
-  title: 'Legally Blond',
+  title: 'Legally Blonde',
   year: '2001', 
   genre: {
     name: 'Drama Comedy',
@@ -190,7 +190,7 @@ app.get('/', (req, res) => {
 
 // (Read) and responds a json with all movies in database
 app.get('/movies', (req, res) => {
-  res.status(200).json(movies);
+  res.status(200).json(topMovies);
 });
 
 //(Read) responds with a json of the specific movie asked for title 
@@ -303,9 +303,9 @@ app.delete('/users/:username', (req, res) => {
 //   res.sendFile('public/documentation.html', { root: __dirname });
 // });
 
-app.get('/movies', (req, res) => {
-  res.json(topMovies);
-});
+// app.get('/movies', (req, res) => {
+//   res.json(topMovies);
+// });
 
         // listen for requests
 app.listen(8080, () => {
