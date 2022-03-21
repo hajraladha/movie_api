@@ -207,7 +207,7 @@ app.get('/movies/:title', (req, res) => {
 
 //(Read) responds with a json of the specific movie asked for genre 
 app.get('/movies/genres/:genre', (req, res) => {
-  const genre = movies.find((movie) => movie.genre.name === req.params.genre).genre;
+  const genre = movies.find((movie) => movie.genre.name === req.params.genre);
 
   if (genre) {
     res.status(200).json(genre);
@@ -218,7 +218,7 @@ app.get('/movies/genres/:genre', (req, res) => {
 
 //(Read) responds with a json of the specific movie asked for director 
 app.get('/movies/directors/:name', (req, res) => {
-  const director = movies.find((movie) => movie.director.name === req.params.name).director;
+  const director = movies.find((movie) => movie.director.name === req.params.name);
 
   if (director) {
     res.status(200).json(director);
