@@ -1,0 +1,4 @@
+{"_id":{"$oid":"625efda4f5e747fa48e5fe02"},"username":"cornflakes","email":"cerealkiller@hotmail.com","password":"Chica2022!","birthday":"1994-07-04","favoriteMovies":[]}
+{"_id":{"$oid":"6269a307ba64a6df1570a767"},"username":"baker001","Email":"sconesandcakes@hotmail.com","Password":"Baker2022!","Birthday":"1998-03-20","favoriteMovies":[{"$oid":"624ce3937c2dc5d98dabdd1e"}]}
+{"_id":{"$oid":"6269a4afba64a6df1570a768"},"Username":"kickass","Email":"techsavvy@hotmail.com","Password":"Techtok2022!","Birthday":"2002-10-24","favoriteMovies":[]}
+{"_id":{"$oid":"6269ab5bba64a6df1570a76a"},"Username":"gamer85","Email":"playstation4@hotmail.com","Password":"Fifa2021!","Birthday":"2006-03-22","favoriteMovies":[]}

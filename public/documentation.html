@@ -62,23 +62,24 @@
             <pre>
               <code>
     {
-      Title: '', 
-      Description: '',
-      Year: '', 
+      Title: String, 
+      Description: String,
+      Year: Date, 
       Genre: {
-        name: '',
-        description: ''
+        name: String,
+        description: String
       } 
       Director: {
-        name: '', 
-        birth: '',
-        death: ''
-        bio: ''
+        name: String, 
+        birth: Date,
+        death: Date,
+        bio: String
       },
       Actors: {
   
       }
-      ImagePath: ''
+      ImagePath: String,
+      Featured: Boolean
     }
               </code>
             </pre>
@@ -94,8 +95,8 @@
             <pre>
               <code>
     { 
-      name: 'Comedy', 
-      description: '', 
+      name: String, 
+      description: String, 
     }
               </code>
             </pre>
@@ -111,10 +112,10 @@
             <pre>
               <code>
     { 
-      name: 'Peter Jackson', 
-      birth: '1961', 
-      death: '-',
-      bio: ''
+      name: String, 
+      birth: Date, 
+      death: Date,
+      bio: String,
     }
               </code>
             </pre>
@@ -129,18 +130,19 @@
             <pre>
               <code>
     { 
-      "username": "John", 
-      "email": "john@gmail.com", 
-      "password": "john2022!"
-      "birthday": "14/02/1990", 
-      "favorites": [
-        "Legally Blond", "Forrest gump"
-      ] 
+      "username": String, 
+       (required)
+      "email": String,
+       (required) 
+      "password": String,
+       (required)
+      "birthday": Date 
+      
     }
               </code>
             </pre>
           </td>
-          <td>A JSON object holding data about added user including ID. Example:
+          <!-- <td>A JSON object holding data about added user including ID. Example:
             <pre>
               <code>
     { 
@@ -156,7 +158,7 @@
               </code>
             </pre>
           </td>
-        </tr>
+        </tr> -->
         <tr>
           <td>Allow users to update their user info (username)</td>
           <td>/users/[username]</td>
@@ -166,7 +168,8 @@
             <pre>
               <code>
     { 
-      "username": "John Smith"
+      "username": String
+       (required)
     }
               </code>
             </pre>
@@ -176,13 +179,11 @@
               <code>
     { 
       id: '1',
-      username: 'John Smith', 
-      email: 'john@gmail.com', 
-      password: 'ihatelemons'
-      birthday: '14/02/1990', 
-      favorites: [
-        'Legally Blond', 'Forrest Gump'
-      ] 
+      username: String,
+      (required) 
+      email: String, 
+      password: String,
+      birthday: Date  
     }
               </code>
             </pre>
