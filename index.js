@@ -233,6 +233,11 @@ app.get('/movies/directors/:name', (req, res) => {
   }
 });
 
+// (Read) and responds a json with all users in database
+
+app.get('/users', (req, res) => {
+  res.status(200).json(users);
+});
 
 //Create user
 app.post('/users', (req, res) => {
