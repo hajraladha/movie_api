@@ -239,6 +239,12 @@ app.get('/users', (req, res) => {
   res.status(200).json(users);
 });
 
+if (users) {
+  res.status(200).json(users);
+} else {
+  res.status(400).send('users not found!')
+};
+
 //Create user
 app.post('/users', (req, res) => {
   const newUser = req.body;
