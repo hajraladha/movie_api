@@ -1,19 +1,25 @@
-const mongoose = require('mongoose');
-const Models = require('./models.js');
-
-const Movies = Models.Movie;
-const Users = Models.User;
-mongoose.connect('mongodb://localhost:27017/myFlix', { useNewUrlParser: true, useUnifiedTopology: true });
 const express = require('express');
 morgan = require('morgan');
 bodyparser = require('body-parser'),
 uuid = require('uuid');
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyparser.json());
 app.use(morgan('common'));
 
+
+const mongoose = require('mongoose');
+const Models = require('./models.js');
+
+const Movies = Models.Movie;
+const Users = Models.User;
+mongoose.connect('mongodb://localhost:27017/myFlix', { useNewUrlParser: true, useUnifiedTopology: true });
+
+app.get('/', (req, res) => {
+  res.send('Welcome to my myFlix website');
+});
 
 let users =  [
   {
@@ -190,9 +196,7 @@ let movies = [
   },
 ]
 
-app.get('/', (req, res) => {
-  res.send('Welcome to my myFlix website');
-});
+
 
 // (Read) and responds a json with all movies in database
 app.get('/movies', (req, res) => {
