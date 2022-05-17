@@ -4,7 +4,7 @@ bodyparser = require('body-parser'),
 uuid = require('uuid');
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyparser.json());
 app.use(morgan('common'));
