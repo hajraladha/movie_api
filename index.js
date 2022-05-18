@@ -48,7 +48,7 @@ app.get('/movies/:title', (req, res) => {
 
 //(Read) responds with a json of the specific movie asked for genre 
 app.get('/movies/genres/:genre', (req, res) => {
-   Movies.findOne({Genre: req.params.genre})
+   Movies.findOne({'Genre.Name': req.params.genre})
    .then((movie) => {
     res.json(movie);
   })
