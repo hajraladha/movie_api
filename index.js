@@ -21,220 +21,53 @@ app.get('/', (req, res) => {
   res.send('Welcome to my myFlix website');
 });
 
-let users =  [
-  {
-    id: '1',
-    username: 'John',
-    email: 'john@gmail.com',
-    password: 'j0hn2022!',
-    birthday: '14/02/1990',
-    favorites: []
-  }
-]
-
-//variable
-let movies = [
-  {
-  title: 'Black Panther',
-  year: '2018', 
-  genre: {
-    name: 'Action',
-    description:'',
-  }, 
-  director: {
-    name: 'Ryan Coogler', 
-    birth: '',
-    death: '',
-    bio: ''
-  },
-  actors: {},
-  imgURL:'',
-  },
-  {
-  title: 'Avengers:EndGame',
-  year: '2019', 
-  genre: {
-    name: 'Action',
-    description:'',
-  }, 
-  director: {
-    name: 'Anthony Russo and Joe Russo', 
-    birth: '',
-    death: '',
-    bio: ''
-  },
-  actors: {},
-  imgURL:'',
-  } ,
-  {
-  title: 'Legally Blonde',
-  year: '2001', 
-  genre: {
-    name: 'Drama',
-    description:'',
-  }, 
-  director: {
-    name: 'Robert Luketic', 
-    birth: '',
-    death: '',
-    bio: ''
-  },
-  actors: {},
-  imgURL:'',
-  },
-  {
-  title: 'Spider Man: No Way Home',
-  year: '2021', 
-  genre: {
-    name: 'Action',
-    description:'',
-  }, 
-  director: {
-    name: 'Jon Watts', 
-    birth: '',
-    death: '',
-    bio: ''
-  },
-  actors: {},
-  imgURL:'',
-  },
-  {
-    title: 'Harry Potter and the Prisoner of Azkaban',
-    year: '2004', 
-    genre: {
-      name: 'Fantasy',
-      description:'',
-    }, 
-    director: {
-      name: 'Alfonso Cuarón', 
-      birth: '',
-      death: '',
-      bio: ''
-    },
-    actors: {},
-    imgURL:'',
-  },
-  {
-    title: 'Little Women',
-    year: '2019', 
-    genre: {
-      name: 'Romance',
-      description:'',
-    }, 
-    director: {
-      name: 'Greta Gerwig', 
-      birth: '',
-      death: '',
-      bio: ''
-    },
-    actors: {},
-    imgURL:'',
-  },
-  {
-    title: 'Turning Red',
-    year: '2022', 
-    genre: {
-      name: 'Comedy',
-      description:'',
-    }, 
-    director: {
-      name: 'Domee Shi', 
-      birth: '',
-      death: '',
-      bio: ''
-    },
-    actors: {},
-    imgURL:'',
-  },
-  {
-    title: 'The Dark Knight Rises',
-    year: '2012', 
-    genre: {
-      name: ' Action',
-      description:'',
-    }, 
-    director: {
-      name: 'Christopher Nolan', 
-      birth: '',
-      death: '',
-      bio: ''
-    },
-    actors: {},
-    imgURL:'',
-  },
-  {
-    title: 'Forrest Gump',
-    year: '1994', 
-    genre: {
-      name: 'Drama ',
-      description:'',
-    }, 
-    director: {
-      name: 'Robert Zemeckis', 
-      birth: '',
-      death: '',
-      bio: ''
-    },
-    actors: {},
-    imgURL:'',
-  },
-  {
-    title: 'Joker',
-    year: '2019', 
-    genre: {
-      name: 'Crime',
-      description:'',
-    }, 
-    director: {
-      name: 'Todd Phillips', 
-      birth: '',
-      death: '',
-      bio: ''
-    },
-    actors: {},
-    imgURL:'',
-  },
-]
-
-
-
 // (Read) and responds a json with all movies in database
 app.get('/movies', (req, res) => {
-  res.status(200).json(movies);
-});
+  Movies.find()
+  .then((movies) => {
+  res.status(201).json(movies);
+  })
+  .catch((err) => {
+  console.error(err);
+  res.status(500).send('Error: ' + err);
+  });
+  });
 
 //(Read) responds with a json of the specific movie asked for title 
 app.get('/movies/:title', (req, res) => {
-  const { title } = req.params;
-  const movie = movies.find(movie => movie.title === title);
-
-  if (movie) {
-    res.status(200).json(movie);
-  } else {
-    res.status(400).send('movie not found!')
-  }
+  Movies.findOne({title: req.params.title})
+  .then((movie) => {
+    res.json(movie);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send('Error: ' + err);
+  });
 });
+
 
 //(Read) responds with a json of the specific movie asked for genre 
 app.get('/movies/genres/:genre', (req, res) => {
-  const genre = movies.find((movie) => movie.genre.name === req.params.genre);
-
-  if (genre) {
-    res.status(200).json(genre);
-  } else {
-    res.status(400).send('Genre not found!')
-  }
+   Movies.findOne({genre: req.params.genre})
+   .then((movie) => {
+    res.json(movie);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send('Error: ' + err);
+  });
 });
 
 //(Read) responds with a json of the specific movie asked for director 
 app.get('/movies/directors/:name', (req, res) => {
-  const director = movies.find((movie) => movie.director.name === req.params.name);
-
-  if (director) {
-    res.status(200).json(director);
-  } else {
-    res.status(404).send('Director not found.')
-  }
+  Movies.findOne({director: req.params.name})
+  .then((movie) => {
+    res.json(movie);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send('Error: ' + err);
+  });
 });
 
 // (Read) and responds a json with all users in database
