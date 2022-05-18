@@ -60,7 +60,7 @@ app.get('/movies/genres/:genre', (req, res) => {
 
 //(Read) responds with a json of the specific movie asked for director 
 app.get('/movies/directors/:name', (req, res) => {
-  Movies.findOne({Director: req.params.name})
+  Movies.findOne({'Director.Name': req.params.name})
   .then((movie) => {
     res.json(movie);
   })
