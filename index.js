@@ -122,18 +122,6 @@ app.post('/users', (req, res) => {
       res.status(500).send('Error: ' + error);
     });
 });
-// app.post('/users', (req, res) => {
-//   const newUser = req.body;
-
-//   if (newUser.username) {
-//     newUser.id = uuid.v4();
-//     users.push(newUser);
-//     res.status(201).json(newUser);
-//   } else {
-//     const message = 'Missing username in request body';
-//     res.status(400).send(message);
-//   };
-// });
 
 //update
 app.put('/users/:Username', (req, res) => {
