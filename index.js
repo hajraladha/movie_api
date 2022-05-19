@@ -163,7 +163,7 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
 //Delete a movie from user`s favorites list
 app.delete('/users/:username/:movie', (req, res) => {
 
-  let user = users.find((user) => { return user.username === req.params.username });
+  let user = Users.find((user) => { return user.username === req.params.username });
 
   if (user) {
     user.favorites = user.favorites.filter((mov) => { return mov !== req.params.movie });
