@@ -161,18 +161,11 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
 });
 
 //Delete a movie from user`s favorites list
-app.delete('/users/:username/:movie', (req, res) => {
-
-  let user = Users.find((user) => { return user.username === req.params.username });
-
-  if (user) {
-    user.favorites = user.favorites.filter((mov) => { return mov !== req.params.movie });
-    res.status(200).send(req.params.movie + ' was removed from ' + user.username + "'s favorites list.");
-  } else {
-    res.status(400).send('user not found!')
-  };
-
-});
+app.delete('/users/:Username/movies/:MovieID', (req, res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username }, {
+  $pull: { FavoriteMovies: req.params.MovieID }
+  },
+  { new: true,},
 
 //Delete user
 app.delete('/users/:Username', (req, res) => {
