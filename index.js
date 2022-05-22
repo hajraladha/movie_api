@@ -48,26 +48,25 @@ app.get('/movies/:title', (req, res) => {
 
 //(Read) responds with a json of the specific movie asked for genre 
 app.get('/movies/genres/:genre', (req, res) => {
-   Movies.findOne({'Genre.Name': req.params.genre})
-   .then((movie) => {
-    res.json(movie);
-  })
-  .catch((err) => {
-    console.error(err);
+  Movies.findOne({ 'Genre.Name': req.params.GenreName })
+    .then((movie) => {
+      res.json(movie.Genre.Description);
+    })
+    .catch((err) => {
+     console.error(err);
     res.status(500).send('Error: ' + err);
   });
 });
 
 //(Read) responds with a json of the specific movie asked for director 
-app.get('/movies/directors/:name', (req, res) => {
-  Movies.findOne({'Director.Name': req.params.name})
-  .then((movie) => {
-    res.json(movie);
-  })
-  .catch((err) => {
-    console.error(err);
-    res.status(500).send('Error: ' + err);
-  });
+app.get('/movies/director/:DirectorName', (req, res) => {
+  Movies.findOne({ 'Director.Name': req.params.DirectorName })
+    .then((movie) => {
+      res.json(movie.Director);
+    })
+    .catch((err) => {
+      handleError(err, res);
+    });
 });
 
 // (Read) and responds a json with all users in database
