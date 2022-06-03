@@ -3,6 +3,11 @@ morgan = require('morgan');
 bodyparser = require('body-parser'),
 uuid = require('uuid');
 
+let auth = require('./auth')(app);:
+
+const passport = require('passport');
+require('./passport');
+
 const app = express();
 // app.use(bodyParser.urlencoded({ extended: true }));
 
