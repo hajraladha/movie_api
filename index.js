@@ -9,7 +9,7 @@ const passport = require('passport');
 require('./passport');
 
 const app = express();
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyparser.json());
 app.use(morgan('common'));
