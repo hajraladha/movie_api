@@ -7,8 +7,8 @@ const passport = require('passport');
 require('./passport');
 
 const app = express();
-let auth = require('./auth')(app);
 app.use(bodyParser.urlencoded({ extended: true }));
+let auth = require('./auth')(app);
 
 app.use(bodyparser.json());
 app.use(morgan('common'));
