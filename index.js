@@ -1,7 +1,9 @@
 const express = require('express');
-morgan = require('morgan');
-bodyparser = require('body-parser'),
-uuid = require('uuid');
+const morgan = require('morgan');
+
+const bodyParser = require('body-parser');
+
+const uuid = require('uuid');
 
 const passport = require('passport');
 require('./passport');
@@ -10,8 +12,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 let auth = require('./auth')(app);
 
-app.use(bodyparser.json());
-app.use(morgan('common'));
+app.use(bodyParser.json());
+app.use(morgan('common'))
 
 
 const mongoose = require('mongoose');
