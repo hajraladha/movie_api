@@ -54,7 +54,7 @@ app.get('/movies/:title', passport.authenticate("jwt", { session: false }), (req
 
 //(Read) responds with a json of the specific movie asked for genre 
 app.get('/movies/genres/:genre', passport.authenticate("jwt", { session: false }), (req, res) => {
-  Movies.findOne({ 'Genre.Name': req.params.GenreName })
+  Movies.findOne({ 'Genre.Name': req.params.genre })
     .then((movie) => {
       res.json(movie.Genre.Description);
     })
