@@ -247,14 +247,11 @@ app.delete('/users/:Username', passport.authenticate("jwt", { session: false }),
     });
 });
 
-// app.get('/documentation', (req, res) => {
-//   res.sendFile('public/documentation.html', { root: __dirname });
-// });
-
 
         // listen for requests
-app.listen(8080, () => {
-          console.log('Your app is listening on port 8080.');
+        const port = process.env.PORT || 8080;
+        app.listen(port, '0.0.0.0',() => {
+         console.log('Listening on Port ' + port);
         });
 
         //Serving Static Files
